@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.lang.reflect.Parameter;
+
 /**
  * <p>
  * 前端控制器
@@ -27,10 +29,16 @@ public class UserController {
     @Autowired
     private IUserBiz userBiz;
 
-    @ApiOperation(value = "获取用户")
+    @ApiOperation(value = "获取用户列表")
     @GetMapping("/getUserList")
     public BaseResponse getContent() {
         return BaseResponse.Success(userBiz.getUserList());
+    }
+
+    @ApiOperation(value = "获取用户")
+    @GetMapping("/getUser")
+    public BaseResponse getUser(@RequestParam int id) {
+        return BaseResponse.Success(userBiz.getUserById(id));
     }
 }
 

@@ -25,4 +25,9 @@ public class UserBizImpl implements IUserBiz {
     public List<User> getUserList() {
         return userService.list();
     }
+
+    @Override
+    public User getUserById(int id) {
+        return userService.getById(id);
+    }
 }

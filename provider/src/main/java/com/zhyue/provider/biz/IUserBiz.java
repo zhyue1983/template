@@ -7,4 +7,5 @@ import java.util.List;
 public interface IUserBiz {
     List<User> getUserList();
 
+    User getUserById(int id);
 }
