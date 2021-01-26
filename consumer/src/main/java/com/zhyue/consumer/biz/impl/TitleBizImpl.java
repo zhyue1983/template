@@ -32,8 +32,9 @@ public class TitleBizImpl implements ITitleBiz {
         List<Title> listTitle = titleService.list();
         List<Title_User> list = new ArrayList<>();
         for (Title title : listTitle) {
-            User user = providerClient.getUserById(title.getId()).getResult();
+            User user = providerClient.getUserById(title.getUserId()).getResult();
             Title_User title_user = new Title_User(user, title);
+
             list.add(title_user);
         }
         return list;
